@@ -1,0 +1,68 @@
+ {% load staticfiles %}
+ 
+<footer class="theme-main-footer">
+    <div class="top-footer-widget">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-4 col-xs-12 footer-logo">
+                    <a href="{% url 'main:home' %}" class="logo">
+                        <img src="{% static 'images/logo2M.png' %}" alt="">
+                    </a>
+                    <p>896 Willow Street, San Jose, California, 95125</p>
+                    <a href="tel:4082790843" class="tran3s">(408) 279-0843</a>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12 footer-list-widget">
+                    <h5>Quick Navigation</h5>
+                    <ul>
+                        <li>
+                            <a href="{% url 'main:about' %}" class="tran3s">About Us</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'menu:list' %}" class="tran3s">Our Menu</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'main:delivery' %}" class="tran3s">Order</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'cart:detail' %}" class="tran3s">Your Cart</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'main:contact' %}" class="tran3s">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-xs-12 col-xs-12 subscribe-widget">
+                    <div>
+                        <h5>Connect With Us</h5>
+                        <p>Stay connected with us through social media!</p>
+                        <ul>
+                            <li>
+                                <a href="https://www.facebook.com/AnisCakeDelights/" class="tran3s" target="_blank">
+                                    <i class="fa fa-facebook" aria-hidden="true"></i> Facebook</a>
+                            </li>
+                            <li>
+                                <a href="https://www.yelp.com/biz/flower-flour-san-jose" class="tran3s" target="_blank">
+                                    <i class="fa fa-yelp" aria-hidden="true"></i> Yelp</a>
+                            </li>
+                            <li>
+                                <a href="https://app.perka.com/start/?merchantUuid=5fb85973-ba3d-4ff5-b53b-9a4a18780356" class="tran3s"
+                                    target="_blank">
+                                    <i class="fa fa-star-o" aria-hidden="true"></i> Perka</a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/flower_flour_sj/" class="tran3s"
+                                    target="_blank">
+                                    <i class="fa fa-instagram" aria-hidden="true"></i> Instagram</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-footer">
+        <p>Copyright &copy;2018
+            <span class="p-color">Flower-Flour</span>
+        </p>
+    </div>
+</footer>

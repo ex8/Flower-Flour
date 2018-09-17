@@ -1,0 +1,65 @@
+{% extends "base.html" %} 
+{% load staticfiles %} 
+
+{% block title %}Custom Cake Order{% endblock %} 
+
+{% block content %}
+<div class="theme-inner-banner">
+    <div class="opacity">
+        <div class="container">
+            <h1>Custom Cake Order</h1>
+            <ul>
+                <li>
+                    <a href="{% url 'main:home' %}">Home</a>
+                </li>
+                <li>/</li>
+                <li>Custom Cake Order</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="delicious-food-section">
+    <div class="container">
+        <div class="theme-section-title text-center">
+            <h2>Custom Cake Order</h2>
+            <p>
+                Order a customly hand-crafted cake for any special event you may have! Please fully complete the order form below and be
+                as specific as possible to ensure a full complete description of your desired cake. Expect a phone call or
+                e-mail for further elaboration and/or confirmation. If you'd like to order a pre-made cake or anything else,
+                please visit our menu!
+            </p>
+            <br />
+            <br />
+            <a href="{% url 'menu:list' %}">Our Menu</a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h2>Custom Cake | Order Form</h2>
+    <br />
+    <form method="post">
+        {{ order_form.as_p }} 
+        {{ cake_form.as_p }}
+        {% csrf_token %}
+        <p>
+            <input type="submit" value="Place Custom Order">
+        </p>
+    </form>
+</div>
+{% endblock %} 
+
+{% block javascript %}
+<script type="text/javascript" src="{% static 'vendor/jquery.2.2.3.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'vendor/bootstrap/bootstrap.min.js' %}"></script>
+<script type='text/javascript' src='{% static 'vendor/Camera-master/scripts/jquery.mobile.customized.min.js' %}'></script>
+<script type='text/javascript' src='{% static 'vendor/Camera-master/scripts/jquery.easing.1.3.js' %}'></script>
+<script type='text/javascript' src='{% static 'vendor/Camera-master/scripts/camera.min.js' %}'></script>
+<script type="text/javascript" src="{% static 'vendor/bootstrap-mega-menu/js/menu.js' %}"></script>
+<script type="text/javascript" src="{% static 'vendor/Rythm-js/rythm.js' %}"></script>
+<script type="text/javascript" src="{% static 'vendor/WOW-master/dist/wow.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'vendor/owl-carousel/owl.carousel.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'vendor/fancybox/dist/jquery.fancybox.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/theme.js' %}"></script>
+{% endblock %}

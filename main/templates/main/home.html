@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}Flower Flour | Bakery and Cafe{% endblock %}
+
+{% block content %}
+    <div id="theme-main-banner" class="banner-one">
+        <div data-src="{{ home.faderimage1.url }}">
+            <div class="camera_caption">
+                <div class="container text-center">
+                    <h3 class="wow fadeInUp animated p-color">Order Online</h3>
+                    <h1 class="wow fadeInUp animated" data-wow-delay="0.2s">Order, Deliver, & Build Cakes!</h1>
+                    <p class="wow fadeInUp animated" data-wow-delay="0.4s">
+                        Have your favorite item ordered online for pickup or delivered to your door!
+                    </p>
+                    <a href="{% url 'order:list' %}"
+                       class="wow fadeInLeft animated banner-button p-bg-color shop-button tran3s"
+                       data-wow-delay="0.6s">order</a>
+                    <a href="{% url 'menu:list' %}" class="wow fadeInRight animated banner-button explore tran3s"
+                       data-wow-delay="0.6s">Menu</a>
+                </div>
+            </div>
+        </div>
+        <div data-src="{{ home.faderimage2.url }}">
+            <div class="camera_caption">
+                <div class="container text-center">
+                    <h3 class="wow fadeInUp animated p-color">Morning Pastries</h3>
+                    <h1 class="wow fadeInUp animated" data-wow-delay="0.2s">Tasty coffee & croissants</h1>
+                    <p class="wow fadeInUp animated" data-wow-delay="0.4s">Baking for 15 years and we're still
+                        counting! </p>
+                    <a href="{% url 'menu:list' %}"
+                       class="wow fadeInLeft animated banner-button p-bg-color shop-button tran3s"
+                       data-wow-delay="0.6s">Menu</a>
+                    <a href="{% url 'order:delivery' %}" class="wow fadeInRight animated banner-button explore tran3s"
+                       data-wow-delay="0.6s">Delivery</a>
+                </div>
+            </div>
+        </div>
+        <div data-src="{{ home.faderimage3.url }}">
+            <div class="camera_caption">
+                <div class="container text-center">
+                    <h3 class="wow fadeInUp animated p-color">Party Cakes</h3>
+                    <h1 class="wow fadeInUp animated" data-wow-delay="0.2s">Super delicious party cakes</h1>
+                    <p class="wow fadeInUp animated" data-wow-delay="0.4s">Order a birthday party cake altered to your
+                        specifications. </p>
+                    <a href="{% url 'menu:list' %}"
+                       class="wow fadeInLeft animated banner-button p-bg-color shop-button tran3s"
+                       data-wow-delay="0.6s">Menu</a>
+                    <a href="{% url 'menu:list' %}" class="wow fadeInRight animated banner-button explore tran3s"
+                       data-wow-delay="0.6s">Build</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="delicious-food-section">
+        <div class="container">
+            <div class="theme-section-title text-center">
+                <h2>Our Delicious Cakes</h2>
+                <p>Each cake is hand crafted with care and handled delicately to ensure you with perfect cakes!</p>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 col-xs-12">
+                    <div class="single-item">
+                        <img src="{{ home.cake1_image.url }}">
+                        <h5>
+                            <a href="{% url 'menu:list' %}">{{ home.cake1_title }}</a>
+                        </h5>
+                        <p>{{ home.cake1_description }}</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-xs-12">
+                    <div class="single-item">
+                        <img src="{{ home.cake2_image.url }}">
+                        <h5>
+                            <a href="{% url 'menu:list' %}">{{ home.cake2_title }}</a>
+                        </h5>
+                        <p>{{ home.cake2_description }}</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-xs-12">
+                    <div class="single-item">
+                        <img src="{{ home.cake3_image.url }}">
+                        <h5>
+                            <a href="{% url 'menu:list' %}">{{ home.cake3_title }}</a>
+                        </h5>
+                        <p>{{ home.cake3_description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="theme-section-title">
+                <h2>See Our Entire Menu</h2>
+                <p>
+                    Order our entire menu through the site for pickup in-store.
+                    Or use a local delivery service such as
+                    UberEats, DoorDash, <br/>or GrubHub to order to your doorstep.
+                    You can also order a special custom cake for a special event!
+                </p>
+                <a href="{% url 'menu:list' %}" class="theme-button"><span>Our Menu</span></a>
+            </div>
+            <a href="https://app.perka.com/start/?merchantUuid=5fb85973-ba3d-4ff5-b53b-9a4a18780356" target="_blank">
+                <img src="http://static.perka.com/profile_button_2_orange_2x.png" alt="perka-button"
+                     style="width: 182px; height: 36px;">
+            </a>
+        </div>
+        <br/>
+    </div>
+
+    <style>
+        .short-banner {
+            background: url({{ home.banner_image.url }}) no-repeat center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+    </style>
+    <div class="short-banner">
+        <div class="opacity">
+            <h2>Order your items online & pick them up in store!</h2>
+            <a href="{% url 'menu:list' %}" class="theme-button">
+                <span>See our menu</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="about-us-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <img src="{% static 'images/home/pizza.png' %}" alt="" class="pizza"></div>
+                <div class="col-md-6 col-xs-12">
+                    <div class="text">
+                        <h2>Special Event? Special Cake!</h2>
+                        <span class="p-color"> A special event calls for a special cake! Our high-end custom cakes can be picked
+                        up from our store or kindly delivered to you on the day (or day prior) of the event! </span>
+                        <span> If you'd like to order a custom cake, please use our
+                        <a class="tran3s" href="{% url 'order:custom' %}">custom cake form</a>. Here you can build a custom cake and have it ready for your event!
+                    We also advise directly contacting us in regards to more specific or elaborate cakes! We want to make sure your cake is perfect!</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript" src="{% static 'vendor/jquery.2.2.3.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/bootstrap/bootstrap.min.js' %}"></script>
+    <script type='text/javascript'
+            src='{% static 'vendor/Camera-master/scripts/jquery.mobile.customized.min.js' %}'></script>
+    <script type='text/javascript' src='{% static 'vendor/Camera-master/scripts/jquery.easing.1.3.js' %}'></script>
+    <script type='text/javascript' src='{% static 'vendor/Camera-master/scripts/camera.min.js' %}'></script>
+    <script type="text/javascript" src="{% static 'vendor/bootstrap-mega-menu/js/menu.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/Rythm-js/rythm.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/WOW-master/dist/wow.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/owl-carousel/owl.carousel.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/fancybox/dist/jquery.fancybox.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/theme.js' %}"></script>
+{% endblock %}

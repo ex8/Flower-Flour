@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}About us{% endblock %}
+
+{% block content %}
+    <style>
+        .theme-inner-banner {
+            background: url({{ about.banner_image.url }}) no-repeat center;
+            background-size: cover;
+            background-attachment: fixed;
+            position: relative;
+            margin-bottom: 180px;
+        }
+    </style>
+    <div class="theme-inner-banner">
+        <div class="opacity">
+            <div class="container">
+                <h1>About us</h1>
+                <ul>
+                    <li>
+                        <a href="{% url 'main:home' %}">Home</a>
+                    </li>
+                    <li>/</li>
+                    <li>About us</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="about-us-section m-top0">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <img src="{% static 'images/cafe2.png' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    <div class="text">
+                        <h2>Our Mission</h2>
+                        <p>{{ about.mission }}</p>
+                        <br> <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        .short-banner {
+            background: url({{ about.banner_image2.url }}) no-repeat center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+    </style>
+    <div class="short-banner">
+        <div class="opacity">
+            <h2>Order your items online & pick them up in store!</h2>
+            <a href="{% url 'menu:list' %}" class="theme-button">
+                <span>See our menu</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="our-team team-style-two">
+        <div class="container">
+            <div class="theme-section-title text-center">
+                <h2>Our Awesome Team</h2>
+                <p>
+                    Meet the hands behind the cakes!
+                </p>
+            </div>
+            <div class="row">
+                {% for person in staff %}
+                    <div class="col-sm-4 col-xs-12">
+                        <div class="team-member">
+                            <div class="image">
+                                <img src="{{ person.image.url }}" alt="">
+                            </div>
+                            <h5>{{ person.name }}</h5>
+                            <p>{{ person.title }}</p>
+                            <p>{{ person.description }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="client-section">
+        <div class="opacity">
+            <div class="container">
+                <div class="theme-section-title text-center">
+                    <h2>What Our Customers Say</h2>
+                    <p></p>
+                </div>
+                <div class="row">
+                    <div id="client-slider">
+                        {% for review in reviews %}
+                            <div class="item">
+                                <div class="client-text">
+                                    <i class="flaticon-left-quote icon tran3s"></i>
+                                    <p> {{ review.body }}</p>
+                                    <h6>{{ review.name }}</h6>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript" src="{% static 'vendor/jquery.2.2.3.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/bootstrap/bootstrap.min.js' %}"></script>
+    <script type='text/javascript'
+            src='{% static 'vendor/Camera-master/scripts/jquery.mobile.customized.min.js' %}'></script>
+    <script type='text/javascript' src='{% static 'vendor/Camera-master/scripts/jquery.easing.1.3.js' %}'></script>
+    <script type='text/javascript' src='{% static 'vendor/Camera-master/scripts/camera.min.js' %}'></script>
+    <script type="text/javascript" src="{% static 'vendor/bootstrap-mega-menu/js/menu.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/Rythm-js/rythm.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/WOW-master/dist/wow.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/owl-carousel/owl.carousel.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/fancybox/dist/jquery.fancybox.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/theme.js' %}"></script>
+{% endblock %}

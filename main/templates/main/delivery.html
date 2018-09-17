@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Delivery{% endblock %}
+
+{% block content %}
+<div class="theme-inner-banner">
+    <div class="opacity">
+        <div class="container">
+            <h1>Delivery</h1>
+            <ul>
+                <li>
+                    <a href="{% url 'main:home' %}">Home</a>
+                </li>
+                <li>/</li>
+                <li>Delivery</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="delicious-food-section">
+        <div class="container">
+            <div class="theme-section-title text-center">
+                <h2>Delivery</h2>
+                <p>
+                    Deliver our delicious menu straight to your door using one of the following
+                    services enlsited below. If you'd like to <strong>order for pickup</strong>, 
+                    please see our menu and checkout through the site.
+                </p>
+                <br />
+                <br />
+                <a href="{% url 'menu:list' %}">Our Menu</a>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 col-xs-12">
+                    <div class="single-item">
+                        <a href="https://www.doordash.com/store/flower-flour-san-jose-224021/" target="_blank">
+                            <img src="{% static 'images/ddash.jpg' %}">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-xs-12">
+                    <div class="single-item">
+                        <a href="https://www.grubhub.com/restaurant/flower-flour-896-willow-st-san-jose/690779" target="_blank">
+                            <img src="{% static 'images/ghub.jpg' %}">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-xs-12">
+                    <div class="single-item">
+                        <a href="https://www.ubereats.com/san-francisco/food-delivery/flower-flour/4ulflRY5ReOTRvtmYOXpNg/" target="_blank">
+                            <img src="{% static 'images/ueats.jpg' %}">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript" src="{% static 'vendor/jquery.2.2.3.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'vendor/bootstrap/bootstrap.min.js' %}"></script>
+<script type='text/javascript' src='{% static 'vendor/Camera-master/scripts/jquery.mobile.customized.min.js' %}'></script>
+<script type='text/javascript' src='{% static 'vendor/Camera-master/scripts/jquery.easing.1.3.js' %}'></script>
+<script type='text/javascript' src='{% static 'vendor/Camera-master/scripts/camera.min.js' %}'></script>
+<script type="text/javascript" src="{% static 'vendor/bootstrap-mega-menu/js/menu.js' %}"></script>
+<script type="text/javascript" src="{% static 'vendor/Rythm-js/rythm.js' %}"></script>
+<script type="text/javascript" src="{% static 'vendor/WOW-master/dist/wow.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'vendor/owl-carousel/owl.carousel.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'vendor/fancybox/dist/jquery.fancybox.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/theme.js' %}"></script> 
+{% endblock %}

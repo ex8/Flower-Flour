@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Contact{% endblock %}
+
+
+{% block content %}
+    <style>
+        .theme-inner-banner {
+            background: url({{ config.banner_image.url }}) no-repeat center;
+            background-size: cover;
+            background-attachment: fixed;
+            position: relative;
+            margin-bottom: 180px;
+        }
+    </style>
+    <div class="theme-inner-banner">
+        <div class="opacity">
+            <div class="container">
+                <h1>Contact Us</h1>
+                <ul>
+                    <li><a href="{% url 'main:home' %}">Home</a></li>
+                    <li>/</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="contact-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-xs-12">
+                    {% if form.errors %}
+                        <div class="alert alert-{{ message.tag }}" role="alert">
+                            {{ message|safe }}
+                        </div>
+                    {% endif %}
+                    <div class="contact-us-form">
+                        <form class="form-styl-one" method="post">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    {{ form.name }}
+                                </div>
+                                <div class="col-sm-4">
+                                    {{ form.email }}
+                                </div>
+                                <div class="col-sm-4">
+                                    {{ form.phone }}
+                                </div>
+                            </div>
+                            {{ form.subject }}
+                            {{ form.message }}
+                            <input type="submit" value="SEND">
+                            {% csrf_token %}
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-6 col-xs-12">
+                    <h4>Hours</h4>
+                    <span class="p-color">
+                        <b>Monday:</b> Closed <br/>
+                        <b>Tuesday - Sunday:</b> 7:30 AM – 5:00 PM<br/>
+                        <br/>
+                        <br/>
+                    </span>
+                    <h4>Location</h4>
+                    <span class="p-color">
+                        896 Willow Street, San Jose,
+                        California, 95125
+                        <br/>
+                        <br/>
+                        <br/>
+                    </span>
+                    <div class="contact-address">
+                        <h3>Give us a call today!</h3>
+                        <a href="tel:4082790843" class="tran3s">(408) 279-0843</a>
+                        <p>Do not hesitate to contact us with any kind of inquiries you may have!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+{% endblock %}
+
+
+{% block javascript %}
+    <script type="text/javascript" src="{% static 'vendor/jquery.2.2.3.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/bootstrap/bootstrap.min.js' %}"></script>
+    <script type='text/javascript'
+            src='{% static 'vendor/Camera-master/scripts/jquery.mobile.customized.min.js' %}'></script>
+    <script type='text/javascript' src='{% static 'vendor/Camera-master/scripts/jquery.easing.1.3.js' %}'></script>
+    <script type='text/javascript' src='{% static 'vendor/Camera-master/scripts/camera.min.js' %}'></script>
+    <script type="text/javascript" src="{% static 'vendor/bootstrap-mega-menu/js/menu.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/Rythm-js/rythm.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/WOW-master/dist/wow.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/owl-carousel/owl.carousel.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/fancybox/dist/jquery.fancybox.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/jquery.mixitup.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/theme.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/contact-form/validate.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/contact-form/jquery.form.js' %}"></script>
+    <script src="{% static 'vendor/sanzzy-map/dist/snazzy-info-window.min.js' %}"></script>
+{% endblock %}

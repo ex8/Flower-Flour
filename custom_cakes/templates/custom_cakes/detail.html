@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load to_list %}
+
+{% block title %}Custom Cakes{% endblock %}
+
+{% block content %}
+    <style>
+        .theme-inner-banner {
+            background: url({{ config.banner_image.url }}) no-repeat center;
+            background-size: cover;
+            background-attachment: fixed;
+            position: relative;
+            margin-bottom: 180px;
+        }
+    </style>
+
+    <div class="theme-inner-banner">
+        <div class="opacity">
+            <div class="container">
+                <h1>Custom Cakes</h1>
+                <ul>
+                    <li><a href="{% url 'main:home' %}">Home</a></li>
+                    <li>/</li>
+                    <li>Custom Cakes</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="single-portfolio">
+        <div class="container">
+            <div class="main-wrapper-box">
+                <div align="center"><h2>{{ cake.name }}</h2></div>
+                <br/>
+                <div align="center"><img src="{{ cake.image.url }}" alt=""></div>
+                <div class="row">
+                    <div class="col-md-4 col-sm-5">
+                        <ul>
+                            <li>
+                                <span>Name</span>
+                                <p>{{ cake.name }}</p>
+                            </li>
+                            <li>
+                                <span>Date</span>
+                                <p>{{ cake.created }}</p>
+                            </li>
+                            <li>
+                                <span>Type</span>
+                                <p>{{ cake.mixitup }}</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-8 col-sm-7">
+                        <p>{{ cake.big_description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="our-portfolio full-width">
+        <div class="row">
+            <div class="clearfix">
+                {% for similar_cake in similar_cakes %}
+                    <div class="col-sm-4">
+                        <div class="single-portfolio-item">
+                            <div class="image-box">
+                                <img src="{{ similar_cake.image.url }}" alt="">
+                                <div class="opacity">
+                                    <a href="{% url 'custom-cake:detail' similar_cake.id %}">+</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript" src="{% static 'vendor/jquery.2.2.3.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/bootstrap/bootstrap.min.js' %}"></script>
+    <script type='text/javascript'
+            src='{% static 'vendor/Camera-master/scripts/jquery.mobile.customized.min.js' %}'></script>
+    <script type='text/javascript' src='{% static 'vendor/Camera-master/scripts/jquery.easing.1.3.js' %}'></script>
+    <script type='text/javascript' src='{% static 'vendor/Camera-master/scripts/camera.min.js' %}'></script>
+    <script type="text/javascript" src="{% static 'vendor/bootstrap-mega-menu/js/menu.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/Rythm-js/rythm.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/WOW-master/dist/wow.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/owl-carousel/owl.carousel.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/fancybox/dist/jquery.fancybox.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/theme.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/jquery.mixitup.min.js' %}"></script>
+{% endblock %}
+
+
+
+

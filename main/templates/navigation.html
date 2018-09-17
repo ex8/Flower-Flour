@@ -1,0 +1,45 @@
+ {% load staticfiles %}
+
+<header class="theme-menu-wrapper theme-main-menu-one">
+    <div class="container">
+        <div class="header-wrapper">
+            <nav class="theme-main-menu-wrapper navbar" id="mega-menu-wrapper">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1"
+                        aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                    <ul class="nav">
+                        <li><a href="{% url 'main:home' %}" class="tran3s">Home</a></li>
+                        <li><a href="{% url 'main:about' %}" class="tran3s">About</a></li>
+                        <li><a href="{% url 'menu:list' %}" class="tran3s">Menu</a></li>
+                        <li class="menu-inner-logo rythm pulse1">
+                            <a href="{% url 'main:home' %}" class="tran3s">
+                                <img src="{% static 'images/Logo-No-Bacground.png' %}" width="180" height="180" alt="FlowerFlour Logo">
+                            </a>
+                        </li>
+                        <li><a href="{% url 'order:list' %}" class="tran3s">Order</a></li>
+                        <li><a href="{% url 'custom-cake:list' %}" class="tran3s">Custom Cakes</a></li>                        
+                        <li>
+                            <a href="{% url 'cart:detail' %}" class="tran3s">
+                                {% with total_items=cart|length %}
+                                {% if cart|length > 0 %}
+                                    Cart [{{ total_items }}]                                
+                                {% else %}
+                                    Cart [0]
+                                {% endif %}
+                                {% endwith %}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="small-device-logo rythm pulse1"></div>
+        </div>
+    </div>
+</header>

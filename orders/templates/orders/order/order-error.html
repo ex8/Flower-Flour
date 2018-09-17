@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Checkout{% endblock %}
+
+{% block content %}
+    <style>
+        .theme-inner-banner {
+            background: url({{ config.create_banner_image.url }}) no-repeat center;
+            background-size: cover;
+            background-attachment: fixed;
+            position: relative;
+            margin-bottom: 180px;
+        }
+    </style>
+    <div class="theme-inner-banner">
+        <div class="opacity">
+            <div class="container">
+                <h1>Checkout</h1>
+                <ul>
+                    <li><a href="{% url 'main:home' %}">Home</a></li>
+                    <li>/</li>
+                    <li>Checkout</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="delicious-food-section">
+        <div class="container">
+            <div class="theme-section-title text-center">
+                <h2>Order Error</h2>
+                <p>
+                    There was an error in your order, please
+                    kindly contact us or call us for immediate assistance.
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript" src="{% static 'vendor/jquery.2.2.3.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/bootstrap/bootstrap.min.js' %}"></script>
+    <script type='text/javascript'
+            src='{% static 'vendor/Camera-master/scripts/jquery.mobile.customized.min.js' %}'></script>
+    <script type='text/javascript' src='{% static 'vendor/Camera-master/scripts/jquery.easing.1.3.js' %}'></script>
+    <script type='text/javascript' src='{% static 'vendor/Camera-master/scripts/camera.min.js' %}'></script>
+    <script type="text/javascript" src="{% static 'vendor/bootstrap-mega-menu/js/menu.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/Rythm-js/rythm.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/WOW-master/dist/wow.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/owl-carousel/owl.carousel.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/fancybox/dist/jquery.fancybox.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/theme.js' %}"></script>
+{% endblock %}

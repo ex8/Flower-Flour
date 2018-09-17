@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Order{% endblock %}
+
+{% block content %}
+    <style>
+        .theme-inner-banner {
+            background: url({{ config.list_banner_image.url }}) no-repeat center;
+            background-size: cover;
+            background-attachment: fixed;
+            position: relative;
+            margin-bottom: 180px;
+        }
+    </style>
+    <div class="theme-inner-banner">
+        <div class="opacity">
+            <div class="container">
+                <h1>Order</h1>
+                <ul>
+                    <li>
+                        <a href="{% url 'main:home' %}">Home</a>
+                    </li>
+                    <li>/</li>
+                    <li>Order</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="pricing-plan">
+        <div class="container">
+            <div class="pricing-title">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h2>Choose your own order type. No hidden costs.</h2>
+                    </div>
+                    <div class="col-sm-6">
+                        <p>
+                            Deliver our delicious menu straight to your door.
+                            If you'd like to order for pickup, please
+                            checkout through the site. Moreover, you can also build
+                            a custom cake through our site for a special occasion!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="plan-figure tran3s">
+                        <h3>Pickup</h3>
+                        <ul>
+                            <li>In-store pickup</li>
+                            <li>Beat the line</li>
+                            <li>Perka benefits</li>
+                        </ul>
+                        <a href="{% url 'menu:list' %}" class="theme-button"><span>Menu</span></a>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="plan-figure tran3s">
+                        <h3>Delivery</h3>
+                        <ul>
+                            <li>Deliver our entire menu</li>
+                            <li>Never stand in line</li>
+                            <li>Use a local delivery service</li>
+                        </ul>
+                        <a href="{% url 'order:delivery' %}" class="theme-button"><span>Delivery</span></a>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="plan-figure tran3s">
+                        <h3>Custom Cake</h3>
+                        <ul>
+                            <li>Fully customized</li>
+                            <li>Perfect for any event</li>
+                            <li>Free quote</li>
+                        </ul>
+                        <a href="{% url 'order:custom' %}" class="theme-button"><span>Build</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript" src="{% static 'vendor/jquery.2.2.3.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/bootstrap/bootstrap.min.js' %}"></script>
+    <script type='text/javascript'
+            src='{% static 'vendor/Camera-master/scripts/jquery.mobile.customized.min.js' %}'></script>
+    <script type='text/javascript' src='{% static 'vendor/Camera-master/scripts/jquery.easing.1.3.js' %}'></script>
+    <script type='text/javascript' src='{% static 'vendor/Camera-master/scripts/camera.min.js' %}'></script>
+    <script type="text/javascript" src="{% static 'vendor/bootstrap-mega-menu/js/menu.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/Rythm-js/rythm.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/WOW-master/dist/wow.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/owl-carousel/owl.carousel.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/fancybox/dist/jquery.fancybox.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/theme.js' %}"></script>
+{% endblock %}

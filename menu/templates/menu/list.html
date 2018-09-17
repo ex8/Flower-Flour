@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %} Menu {% endblock %}
+
+{% block content %}
+    <style>
+        .theme-inner-banner {
+            background: url({{ menu.banner_image.url }}) no-repeat center;
+            background-size: cover;
+            background-attachment: fixed;
+            position: relative;
+            margin-bottom: 180px;
+        }
+        .shop-page .shop-product-wrapper .single-product h6 a {
+            font-size: 18px;
+            color: #151515;
+            margin-bottom: 10px;
+        }
+    </style>
+    <div class="theme-inner-banner">
+        <div class="opacity">
+            <div class="container">
+                <h1>Our Menu</h1>
+                <ul>
+                    <li><a href="{% url 'main:home' %}">Home</a></li>
+                    <li>/</li>
+                    <li>Menu</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="shop-page full-width">
+        <div class="row">
+            {% if messages.success %}
+                {% for message in messages %}
+                    <div class="alert alert-success" role="alert">
+                        Success
+                    </div>
+                {% endfor %}
+            {% endif %}
+            <div class="col-lg-9 col-md-8 col-xs-12 float-right">
+                <div class="shop-product-wrapper">
+                    {% if category_slug %}
+                        <h4>{{ category.name|title }}</h4><br/>
+                    {% endif %}
+                    <div class="row">
+                        {% for product in products %}
+                            <div class="col-lg-4 col-xs-6">
+                                <div class="single-product">
+                                    <div class="image">
+                                        <a href="{{ product.get_absolute_url }}"><img
+                                                src="{% if product.image %}{{ product.image.url }}
+                                    {% else %}{% static 'images/no_image.png' %}{% endif %}"></a>
+                                    </div>
+                                    <h6><a href="{{ product.get_absolute_url }}"
+                                           class="tran3s">{{ product.name }}</a></h6>
+                                    <strong>${{ product.price }}</strong>
+                                    <form method="post" action="{% url "cart:add-list" product.id %}">
+                                        {{ cart_product_form }}
+                                        {% csrf_token %}
+                                        <input type="submit" class="tran3s" value="+">
+                                    </form>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    {% comment %} <ul class="page-pagination">
+                    <li class="active"><a href="#" class="tran3s">1</a></li>
+                    <li><a href="#" class="tran3s">2</a></li>
+                    <li><a href="#" class="tran3s">3</a></li>
+                    <li><a href="#" class="tran3s"><i class="flaticon-arrows"></i></a></li>
+                </ul> {% endcomment %}
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="shop-sidebar">
+                    <div class="sidebar-categories">
+                        <h3>Categories</h3>
+                        <ul>
+                            <li class="clearfix"><a href="{% url 'menu:list' %}" class="tran3s">All Products</a></li>
+                            {% for category in categories %}
+                                <li class="clearfix"><a href="{{ category.get_absolute_url }}"
+                                                        class="tran3s">{{ category.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript" src="{% static 'vendor/jquery.2.2.3.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/bootstrap/bootstrap.min.js' %}"></script>
+    <script type='text/javascript'
+            src='{% static 'vendor/Camera-master/scripts/jquery.mobile.customized.min.js' %}'></script>
+    <script type='text/javascript' src='{% static 'vendor/Camera-master/scripts/jquery.easing.1.3.js' %}'></script>
+    <script type='text/javascript' src='{% static 'vendor/Camera-master/scripts/camera.min.js' %}'></script>
+    <script type="text/javascript" src="{% static 'vendor/bootstrap-mega-menu/js/menu.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/Rythm-js/rythm.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/WOW-master/dist/wow.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/owl-carousel/owl.carousel.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/fancybox/dist/jquery.fancybox.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/theme.js' %}"></script>
+{% endblock %}

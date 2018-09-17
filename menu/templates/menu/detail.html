@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}{{ product.name }} | Menu{% endblock %}
+
+{% block content %}
+    <style>
+        .theme-inner-banner {
+            background: url({{ menu.banner_image.url }}) no-repeat center;
+            background-size: cover;
+            background-attachment: fixed;
+            position: relative;
+            margin-bottom: 180px;
+        }
+    </style>
+    <div class="theme-inner-banner">
+        <div class="opacity">
+            <div class="container">
+                <h1>{{ product.name }}</h1>
+                <ul>
+                    <li><a href="{% url 'menu:list' %}">Home</a></li>
+                    <li>/</li>
+                    <li>Menu</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="shop-page shop-details">
+        <div class="container">
+            <div class="product-details">
+                <div class="row">
+                    <div class="col-md-5 col-sm-6">
+                        <div class="tab-content">
+                            <div id="menu0" class="tab-pane fade in active"><img src="{% if product.image %}{{ product.image.url }}
+                                {% else %}{% static 'images/no_image.png' %}{% endif %}" alt=""></div>
+                        </div>
+                    </div>
+                    <div class="col-md-7 col-sm-6">
+                        <div class="product-info">
+                            <h3>{{ product.name }}</h3>
+                            <strong>${{ product.price }}</strong>
+                            <p>{{ product.description }}</p>
+                            <div class="quantity clearfix">
+                                <form method="post" action="{% url "cart:add" product.id %}">
+                                    {{ cart_product_form }}   
+                                    {% csrf_token %}  
+                                    <input type="submit" class="cart tran3s p-bg-color" value="ADD TO CART">                               
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript" src="{% static 'vendor/jquery.2.2.3.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'vendor/bootstrap/bootstrap.min.js' %}"></script>
+<script type='text/javascript' src='{% static 'vendor/Camera-master/scripts/jquery.mobile.customized.min.js' %}'></script>
+<script type='text/javascript' src='{% static 'vendor/Camera-master/scripts/jquery.easing.1.3.js' %}'></script>
+<script type='text/javascript' src='{% static 'vendor/Camera-master/scripts/camera.min.js' %}'></script>
+<script type="text/javascript" src="{% static 'vendor/bootstrap-mega-menu/js/menu.js' %}"></script>
+<script type="text/javascript" src="{% static 'vendor/Rythm-js/rythm.js' %}"></script>
+<script type="text/javascript" src="{% static 'vendor/WOW-master/dist/wow.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'vendor/owl-carousel/owl.carousel.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'vendor/fancybox/dist/jquery.fancybox.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/theme.js' %}"></script> 
+{% endblock %}
